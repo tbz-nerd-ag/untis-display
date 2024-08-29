@@ -22,9 +22,12 @@ s = webuntis.Session(
 s.login()
 
 print("TBZ Mitte DoorSign Server v0.1\nby ingressy\n")
-choose = input("From which room would you like to have the timetable? ")
-chtime = input("What time is it? ")
-
+time = datetime.datetime.now()
+chtime = (time.strftime("%H%M"))
+chdate = (time.strftime("%Y-%m-%d"))
+choose = "2.311"
+#choose = input("From which room would you like to have the timetable? ")
+#chtime = input("What time is it? ")
 start = datetime.datetime.now()
 end = start + datetime.timedelta(days=4)
 
@@ -35,7 +38,7 @@ tt = sorted(tt, key=lambda x: x.start)
 #print(tt)
 
 time_format_end = "%H%M"
-time_format_start = "%Y-%m-%d %a " + time_format_end
+time_format_start = "%Y-%m-%d " + time_format_end
 
 for po in tt:
     s = po.start.strftime(time_format_start)
